@@ -1,0 +1,9 @@
+.notifications-div-holder {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 300px;
+}
+.notifications-div {
+    border: 2px solid gray;
+    height: 100%;
+}
