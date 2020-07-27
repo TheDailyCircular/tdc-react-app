@@ -7,15 +7,15 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import store from './Store';
 
-import UserRegistration from './component/user/UserRegistration';
-import Header from './component/header/Header';
-import Posts from './component/posts/Posts'
-import Messages from './component/message/Messages';
-import Circulars from './component/circular/Circulars';
-import UserProfile from './component/user/UserProfile';
-import NavigationBar from './component/navbar/NavigationBar';
-import SideBarAdsence from './component/adsence/SideBarAdsence';
-import Notifications from './component/notification/Notifications';
+import UserRegistration from './components/user/UserRegistration';
+import Header from './components/header/Header';
+import Posts from './components/posts/Posts'
+import Messages from './components/message/Messages';
+import Circulars from './components/circular/Circulars';
+import UserProfile from './components/user/UserProfile';
+import NavigationBar from './components/navbar/NavigationBar';
+import SideBarAdsence from './components/adsence/SideBarAdsence';
+import Notifications from './components/notification/Notifications';
 
 
 function App() {
