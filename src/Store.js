@@ -22,7 +22,7 @@ if (0 && window.navigator.userAgent.includes("Chrome")) {
 else {
   store = createStore(
     rootReducer,
-    initailState,
+    initialState,
     composeWithDevTools(applyMiddleware(...middleware))
   );
 }
