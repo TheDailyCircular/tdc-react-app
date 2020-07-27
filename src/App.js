@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col, Container } from 'react-bootstrap';
 
+import UserRegistration from './component/user/UserRegistration';
 import Header from './component/header/Header';
 import Posts from './component/posts/Posts'
 import Messages from './component/message/Messages';
@@ -19,6 +20,7 @@ function App() {
     <BrowserRouter>
       <div className="App fluid">
         <Header />
+        <Route exact path="/registration" component={UserRegistration} />
         <NavigationBar />
         <Container id="main-container">
           <Row className="main-row">
