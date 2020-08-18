@@ -7,7 +7,7 @@ import { Row, Col, Navbar, Nav, Container } from 'react-bootstrap';
 class NavigationBar extends Component {
   render() {
     return (
-      <Row>
+      <Row id="tdc-nav-bar-row">
         <Col md={12}>
           <Navbar
             collapseOnSelect

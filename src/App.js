@@ -22,25 +22,23 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <div className="App fluid">
+        <div className="App">
           <Header />
           <Route exact path="/registration" component={UserRegistration} />
           <NavigationBar />
-          <Container id="main-container">
-            <Row className="main-row">
-              <Col md={9} className="changeable-area">
-                <Route exact path="/" component={Posts} />
-                <Route exact path="/posts" component={Posts} />
-                <Route exact path="/messages" component={Messages} />
-                <Route exact path="/circulars" component={Circulars} />
-                <Route exact path="/profile" component={UserProfile} />
-              </Col>
-              <Col md={3}>
-                <SideBarAdsence />
-                <Notifications />
-              </Col>
-            </Row>
-          </Container>
+          <Row id="main-row">
+            <Col md={9} className="changeable-area">
+              <Route exact path="/" component={Posts} />
+              <Route exact path="/posts" component={Posts} />
+              <Route exact path="/messages" component={Messages} />
+              <Route exact path="/circulars" component={Circulars} />
+              <Route exact path="/profile" component={UserProfile} />
+            </Col>
+            <Col md={3}>
+              <SideBarAdsence />
+              <Notifications />
+            </Col>
+          </Row>
         </div>
       </BrowserRouter>
     </Provider>

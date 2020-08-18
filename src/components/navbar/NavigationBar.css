@@ -1,3 +1,7 @@
+#tdc-nav-bar-row {
+    width: initial;
+}
+
 #tdc-nav-bar {
     background-color: red;
     padding-top: revert;
