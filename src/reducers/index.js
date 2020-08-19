@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import ErrorReducer from './ErrorReducer';
+import CircularReducer from './CircularReducer';
 
 export default combineReducers({
-  errors: ErrorReducer
+  error: ErrorReducer,
+  circular: CircularReducer
 });
