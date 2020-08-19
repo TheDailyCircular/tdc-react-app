@@ -9,7 +9,7 @@
 
 .changeable-area {
   height: 900px;
-  background-color: green;
+  border: 1px solid black;
 }
 
 #main-row {

@@ -3,6 +3,8 @@ import './Circulars.css';
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { getCirculars } from '../../actions/CircularActions';
+import { Container } from 'react-bootstrap';
+import Circular from './Circular';
 
 class Circulars extends Component {
   constructor() {
@@ -13,15 +15,20 @@ class Circulars extends Component {
   }
 
   componentDidMount = () => {
-    console.log("pageno " + this.state.pageNo);
     this.props.getCirculars(this.state.pageNo);
   }
 
   render() {
+    const { circulars } = this.props;
+
     return (
-      <div>
-        Circulars
-      </div>
+      <Container id="circulars-container">
+        {
+          circulars.map((circular, idx) => (
+            <Circular key={idx} circular={circular} />
+          ))
+        }
+      </Container>
     )
   }
 }

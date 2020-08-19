@@ -1,0 +1,33 @@
+#circulars-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#circular-container {
+  background-color: lightskyblue;
+  margin-bottom: 5px;
+  border: 2px solid lightskyblue;
+  border-radius: 8px;
+}
+
+#cicular-row1 {
+  padding: 10px;
+  background: white;
+}
+
+#cicular-row2 {}
+
+#circular-deadline-col {
+  text-align: center;
+}
+
+#exp-date-div {
+  background: lightskyblue;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  margin-left: 5px;
+}
