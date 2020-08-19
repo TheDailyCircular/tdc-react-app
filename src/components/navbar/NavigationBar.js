@@ -16,7 +16,7 @@ class NavigationBar extends Component {
           >
             <Container>
               <Navbar.Brand href="/profile">
-                <img className="rounded" src="./woody.jpeg" alt="user" height="45px" width="45px" />
+                <img className="rounded" src={process.env.PUBLIC_URL + "/woody.jpeg"} alt="user" height="45px" width="45px" />
                 {" User Profile"}
               </Navbar.Brand>
             </Container>

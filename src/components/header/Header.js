@@ -10,7 +10,7 @@ class Header extends Component {
       <Row id="tdc-header" className="fixed">
         <Col md={3} style={{ paddingLeft: "10px", paddingRight: "10px" }}>
           <Link to="/">
-            <img src="./thedailycircular.png" width="100%" height="55px" alt="The Daily Circular" />
+            <img src={process.env.PUBLIC_URL + "/thedailycircular.png"} width="100%" height="55px" alt="The Daily Circular" />
           </Link>
         </Col>
         <Col md={9} >
