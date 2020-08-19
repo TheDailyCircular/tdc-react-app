@@ -16,6 +16,7 @@ import UserProfile from './components/user/UserProfile';
 import NavigationBar from './components/navbar/NavigationBar';
 import SideBarAdsence from './components/adsence/SideBarAdsence';
 import Notifications from './components/notification/Notifications';
+import CreateCircular from './components/circular/CreateCircular';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={Posts} />
                 <Route exact path="/posts" component={Posts} />
+                <Route exact path="/posts/create" component={CreateCircular} />
                 <Route exact path="/messages" component={Messages} />
                 <Route exact path="/circulars" component={Circulars} />
                 <Route exact path="/profile" component={UserProfile} />
