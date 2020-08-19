@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './NavigationBar.css';
 import { Row, Col, Navbar, Nav, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -25,16 +26,16 @@ class NavigationBar extends Component {
               <Nav className="mr-auto" />
               <Nav>
                 <Nav.Item>
-                  <Nav.Link href="/posts" >Posts</Nav.Link>
+                  <Link className="nav-link" to="/posts" >Posts</Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/messages" >Messages</Nav.Link>
+                  <Link className="nav-link" to="/messages" >Messages</Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/circulars" >Circulars</Nav.Link>
+                  <Link className="nav-link" to="/circulars" >Circulars</Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/others" >Others</Nav.Link>
+                  <Link className="nav-link" to="/others" >Others</Link>
                 </Nav.Item>
               </Nav>
             </Navbar.Collapse>
