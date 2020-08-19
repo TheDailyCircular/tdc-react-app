@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 
@@ -28,11 +28,13 @@ function App() {
           <NavigationBar />
           <Row id="main-row">
             <Col md={9} className="changeable-area">
-              <Route exact path="/" component={Posts} />
-              <Route exact path="/posts" component={Posts} />
-              <Route exact path="/messages" component={Messages} />
-              <Route exact path="/circulars" component={Circulars} />
-              <Route exact path="/profile" component={UserProfile} />
+              <Switch>
+                <Route exact path="/" component={Posts} />
+                <Route exact path="/posts" component={Posts} />
+                <Route exact path="/messages" component={Messages} />
+                <Route exact path="/circulars" component={Circulars} />
+                <Route exact path="/profile" component={UserProfile} />
+              </Switch>
             </Col>
             <Col md={3}>
               <SideBarAdsence />
