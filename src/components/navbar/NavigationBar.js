@@ -16,10 +16,10 @@ class NavigationBar extends Component {
             id="tdc-nav-bar"
           >
             <Container>
-              <Navbar.Brand href="/profile">
+              <Link className="navbar-brand" to="/profile">
                 <img className="rounded" src={process.env.PUBLIC_URL + "/woody.jpeg"} alt="user" height="45px" width="45px" />
                 {" User Profile"}
-              </Navbar.Brand>
+              </Link>
             </Container>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
