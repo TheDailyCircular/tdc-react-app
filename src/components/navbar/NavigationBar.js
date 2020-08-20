@@ -53,29 +53,3 @@ class NavigationBar extends Component {
 }
 
 export default NavigationBar;
-
-
-//   <Container>
-//           <Link className="navbar-brand" to="/profile">
-//             <img className="rounded" src={process.env.PUBLIC_URL + "/woody.jpeg"} alt="user" height="45px" width="45px" />
-//             {" User Profile"}
-//           </Link>
-//         </Container>
-//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-//         <Navbar.Collapse id="responsive-navbar-nav">
-//           <Nav className="mr-auto" />
-//           <Nav>
-//             <Nav.Item>
-//               <Link className="nav-link" to="/posts" >Posts</Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//               <Link className="nav-link" to="/messages" >Messages</Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//               <Link className="nav-link" to="/circulars" >Circulars</Link>
-//             </Nav.Item>
-//             <Nav.Item>
-//               <Link className="nav-link" to="/others" >Others</Link>
-//             </Nav.Item>
-//           </Nav>
-//         </Navbar.Collapse>
