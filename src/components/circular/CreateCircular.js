@@ -4,21 +4,38 @@ import { Container, Form, Button } from 'react-bootstrap';
 class CreateCircular extends Component {
   constructor() {
     super();
-
-    this.onSubmit = this.onSubmit.bind(this);
+    this.state = {
+      id: "",
+      title: "",
+      expirationDate: "",
+      text: "",
+      errors: {}
+    };
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
-  onSubmit = event => { }
+  onChangeHandler = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  onSubmitHandler = event => {
+    event.preventDefault();
+    console.log(this.state);
+  }
 
   render() {
     return (
       <Container id="create-circular-container">
-        <Form id="create-circular-from" onSubmit={this.onSubmit}>
+        <Form id="create-circular-from" onSubmit={this.onSubmitHandler}>
           <Form.Group>
             <Form.Label>Circular Title</Form.Label>
             <Form.Control
               name="title"
               type="text"
+              value={this.state.title}
+              onChange={this.onChangeHandler}
             >
             </Form.Control>
           </Form.Group>
@@ -27,6 +44,8 @@ class CreateCircular extends Component {
             <Form.Control
               name="expirationDate"
               type="date"
+              value={this.state.expirationDate}
+              onChange={this.onChangeHandler}
             >
             </Form.Control>
           </Form.Group>
@@ -34,7 +53,10 @@ class CreateCircular extends Component {
             <Form.Label>Circular Body</Form.Label>
             <textarea
               className="form-control"
+              id="circular-text-area"
               name="text"
+              value={this.state.text}
+              onChange={this.onChangeHandler}
             >
             </textarea>
           </Form.Group>

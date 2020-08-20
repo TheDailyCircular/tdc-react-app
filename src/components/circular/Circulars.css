@@ -35,3 +35,7 @@
 #create-circular-container {
   padding-top: 10px;
 }
+
+#circular-text-area {
+  height: 200px;
+}
