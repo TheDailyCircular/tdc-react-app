@@ -1,49 +1,81 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './NavigationBar.css';
-import { Row, Col, Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faBell } from '@fortawesome/free-solid-svg-icons';
 
 class NavigationBar extends Component {
   render() {
     return (
-      <Row id="tdc-nav-bar-row">
-        <Col md={12}>
-          <Navbar
-            collapseOnSelect
-            expand="lg"
-            id="tdc-nav-bar"
-          >
-            <Container>
-              <Link className="navbar-brand" to="/profile">
-                <img className="rounded" src={process.env.PUBLIC_URL + "/woody.jpeg"} alt="user" height="45px" width="45px" />
-                {" User Profile"}
-              </Link>
-            </Container>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mr-auto" />
-              <Nav>
-                <Nav.Item>
-                  <Link className="nav-link" to="/posts" >Posts</Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Link className="nav-link" to="/messages" >Messages</Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Link className="nav-link" to="/circulars" >Circulars</Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Link className="nav-link" to="/others" >Others</Link>
-                </Nav.Item>
-              </Nav>
-            </Navbar.Collapse>
-          </Navbar>
-        </Col>
-      </Row>
+      <Navbar collapseOnSelect expand="lg" sticky="top" id="tdc-navbar" >
+        <Container id="navbar-container">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Link className="nav-link" id="tdc-nav-link" to="/posts" >Posts</Link>
+              <Link className="nav-link" id="tdc-nav-link" to="/circulars" >Circulars</Link>
+              <Link className="nav-link" id="tdc-nav-link" to="/others" >Others</Link>
+            </Nav>
+            <Nav>
+              <Container key={0}>
+                <Link className="nav-link" id="tdc-nav-link" to="/notification" >
+                  <FontAwesomeIcon icon={faBell} size="lg" />
+                </Link>
+              </Container>
+              <Container key={1}>
+                <Link className="nav-link" id="tdc-nav-link" to="/messages" >
+                  <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                </Link>
+              </Container>
+              <NavDropdown
+                title={
+                  <img className="rounded-circle z-depth-0"
+                    src={process.env.PUBLIC_URL + "/woody.jpeg"}
+                    alt="user pic"
+                    height="30" width="30"
+                  />
+                }
+                drop="left"
+                id="tdc-nav-link"
+              >
+                <Link className="dropdown-item" id="profile-dropdown-item" to="/profile">Profile</Link>
+                <NavDropdown.Divider />
+                <NavDropdown.Item>Logout</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     )
   }
 }
 
 export default NavigationBar;
+
+
+//   <Container>
+//           <Link className="navbar-brand" to="/profile">
+//             <img className="rounded" src={process.env.PUBLIC_URL + "/woody.jpeg"} alt="user" height="45px" width="45px" />
+//             {" User Profile"}
+//           </Link>
+//         </Container>
+//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+//         <Navbar.Collapse id="responsive-navbar-nav">
+//           <Nav className="mr-auto" />
+//           <Nav>
+//             <Nav.Item>
+//               <Link className="nav-link" to="/posts" >Posts</Link>
+//             </Nav.Item>
+//             <Nav.Item>
+//               <Link className="nav-link" to="/messages" >Messages</Link>
+//             </Nav.Item>
+//             <Nav.Item>
+//               <Link className="nav-link" to="/circulars" >Circulars</Link>
+//             </Nav.Item>
+//             <Nav.Item>
+//               <Link className="nav-link" to="/others" >Others</Link>
+//             </Nav.Item>
+//           </Nav>
+//         </Navbar.Collapse>
