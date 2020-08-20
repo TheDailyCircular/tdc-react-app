@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createCircular } from '../../actions/CircularActions';
 
 class CreateCircular extends Component {
   constructor() {
@@ -23,6 +26,13 @@ class CreateCircular extends Component {
   onSubmitHandler = event => {
     event.preventDefault();
     console.log(this.state);
+    const newCircular = {
+      id: this.state.id,
+      title: this.state.title,
+      expirationDate: this.state.expirationDate,
+      text: this.state.text
+    };
+    this.props.createCircular(newCircular, this.props.history);
   }
 
   render() {
@@ -69,4 +79,19 @@ class CreateCircular extends Component {
   }
 }
 
-export default CreateCircular;
+CreateCircular.protoType = {
+  error: PropTypes.object.isRequired,
+  circular: PropTypes.object.isRequired,
+  createCircular: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  error: state.error,
+  circular: state.circular.circular
+});
+
+const mapDispatchToProps = {
+  createCircular: createCircular
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCircular);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Circulars.css';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCirculars } from '../../actions/CircularActions';
 import { Container } from 'react-bootstrap';

@@ -1,7 +1,8 @@
 import { GET_CIRCULARS } from "../actions/types";
 
 const initialState = {
-  circulars: []
+  circulars: [],
+  circular: {}
 };
 
 export default function (state = initialState, action) {
