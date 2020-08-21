@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import './NavigationBar.css';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faBell } from '@fortawesome/free-solid-svg-icons';
+import Login from '../user/Login';
 
 class NavigationBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showLoginForm: false
+    };
+    this.loginModalRef = React.createRef();
+    this.showLoginFormHandler = this.showLoginFormHandler.bind(this);
+    this.onHideLoginFormHandler = this.onHideLoginFormHandler.bind(this);
+  }
+
+  showLoginFormHandler = event => {
+    event.preventDefault();
+    this.setState({ showLoginForm: true });
+  }
+
+  onHideLoginFormHandler = event => {
+    this.setState({ showLoginForm: false });
+  }
+
   render() {
     return (
       <Navbar collapseOnSelect expand="lg" sticky="top" id="tdc-navbar" >
@@ -19,6 +39,27 @@ class NavigationBar extends Component {
               <Link className="nav-link" id="tdc-nav-link" to="/others" >Others</Link>
             </Nav>
             <Nav>
+              <Container id="tdc-before-login-menu-container">
+                <Button
+                  size="sm"
+                  variant="secondary"
+                  onClick={this.showLoginFormHandler}
+                >
+                  Login
+                </Button>
+                <Login show={this.state.showLoginForm} onHideHandler={this.onHideLoginFormHandler} />
+              </Container>
+              <Container id="tdc-before-login-menu-container">
+                <Link to="/register">
+                  <Button
+                    size="sm"
+                    variant="success"
+                  >
+                    Register
+                  </Button>
+                </Link>
+              </Container>
+
               <Container key={0}>
                 <Link className="nav-link" id="tdc-nav-link" to="/notification" >
                   <FontAwesomeIcon icon={faBell} size="lg" />

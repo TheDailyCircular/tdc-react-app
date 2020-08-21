@@ -14,3 +14,8 @@
   color: ivory;
   font-weight: bold;
 }
+
+#tdc-before-login-menu-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
