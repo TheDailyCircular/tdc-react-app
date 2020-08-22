@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { login } from '../../actions/SecurityActions';
+import classnames from 'classnames';
 
 class Login extends Component {
   constructor(props) {
@@ -20,9 +24,16 @@ class Login extends Component {
 
   onSubmitHandler = event => {
     event.preventDefault();
+    const loginRequest = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.props.login(loginRequest);
   }
 
   render() {
+    const { errors } = this.props;
+
     return (
       <Modal
         size="sm"
@@ -37,6 +48,10 @@ class Login extends Component {
           <Form id="login-from" onSubmit={this.onSubmitHandler}>
             <Form.Group>
               <Form.Control
+                className={classnames(
+                  "form-control from-control-lg",
+                  { "is-invalid": errors.username }
+                )}
                 type="email"
                 name="username"
                 placeholder="Email"
@@ -44,10 +59,19 @@ class Login extends Component {
                 onChange={this.onChangeHandler}
               >
               </Form.Control>
+              {errors.username && (
+                <div className="invalid-feedback">
+                  {errors.username}
+                </div>
+              )}
             </Form.Group>
 
             <Form.Group>
               <Form.Control
+                className={classnames(
+                  "form-control from-control-lg",
+                  { "is-invalid": errors.password }
+                )}
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -55,6 +79,11 @@ class Login extends Component {
                 onChange={this.onChangeHandler}
               >
               </Form.Control>
+              {errors.password && (
+                <div className="invalid-feedback">
+                  {errors.password}
+                </div>
+              )}
             </Form.Group>
             <Form.Group>
               <Button className="form-control" type="submit">Login</Button>
@@ -72,4 +101,19 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  security: PropTypes.object.isRequired,
+  login: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  errors: state.error,
+  security: state.security
+});
+
+const mapDispatchToProps = {
+  login: login
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
