@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faBell, faPowerOff } from '@fortawesome/free-solid-svg-icons';
-import Login from '../user/Login';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/SecurityActions';
+import Login from '../user/Login';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -17,17 +17,16 @@ class NavigationBar extends Component {
     this.state = {
       showLoginForm: false
     };
-    this.showLoginFormHandler = this.showLoginFormHandler.bind(this);
-    this.onHideLoginFormHandler = this.onHideLoginFormHandler.bind(this);
+    this.showLoginForm = this.showLoginForm.bind(this);
+    this.onHideLoginForm = this.onHideLoginForm.bind(this);
     this.processLogout = this.processLogout.bind(this);
   }
 
-  showLoginFormHandler = event => {
-    event.preventDefault();
+  showLoginForm = event => {
     this.setState({ showLoginForm: true });
   }
 
-  onHideLoginFormHandler = event => {
+  onHideLoginForm = event => {
     this.setState({ showLoginForm: false });
   }
 
@@ -57,11 +56,14 @@ class NavigationBar extends Component {
                   <Button
                     size="sm"
                     variant="secondary"
-                    onClick={this.showLoginFormHandler}
+                    onClick={this.showLoginForm}
                   >
                     Login
                   </Button>
-                  <Login show={this.state.showLoginForm} onHideHandler={this.onHideLoginFormHandler} />
+                  <Login
+                    show={this.state.showLoginForm}
+                    onHideHandler={this.onHideLoginForm}
+                  />
                 </Container> : ""
               }
               {!this.props.isUserLoggedIn ?
@@ -135,6 +137,8 @@ const mapStateToProps = state => ({
   isUserLoggedIn: state.security.isValidToken
 });
 
-const mapDispatchToProps = { logout: logout };
+const mapDispatchToProps = {
+  logout: logout
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
