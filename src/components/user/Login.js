@@ -92,7 +92,7 @@ class Login extends Component {
         </Modal.Body>
         <Modal.Footer>
           <Link to='/register' onClick={this.props.onHideHandler} >
-            <Button size="sm" variant="success">Sign up</Button>
+            <Button size="sm" variant="success">Register</Button>
           </Link>
           <Button size="sm" variant="danger" onClick={this.props.onHideHandler} >Forget Password</Button>
         </Modal.Footer>

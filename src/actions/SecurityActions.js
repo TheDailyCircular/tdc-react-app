@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { SET_CURRENT_USER, GET_ERRORS, REGISTER_NEW_USER } from './types';
+import { SET_CURRENT_USER, GET_ERRORS } from './types';
 import setJWTTokenToHeader from '../security/setJWTTokenToHeader';
 import jwt_decode from 'jwt-decode';
 
@@ -38,13 +38,17 @@ export const logout = () => async dispatch => {
   });
 };
 
-export const registration = newUser => async dispatch => {
+export const registerUser = (newUser, history) => async dispatch => {
   try {
     await Axios.post('/api/user/register', newUser);
-
+    history.push("/registration/complete")
+    dispatch({
+      type: GET_ERRORS,
+      payload: {}
+    });
   } catch (err) {
     dispatch({
-      type: REGISTER_NEW_USER,
+      type: GET_ERRORS,
       payload: err.response.data
     });
   }
