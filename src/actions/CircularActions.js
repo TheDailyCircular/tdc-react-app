@@ -2,7 +2,7 @@ import Axios from "axios"
 import { GET_CIRCULARS, GET_ERRORS } from "./types";
 
 export const getCirculars = pageNo => async dispatch => {
-  const res = await Axios.get('/api/circular/circulars?page=' + pageNo + '&size=10');
+  const res = await Axios.get('/api/circular/get/circulars?page=' + pageNo + '&size=10');
   dispatch({
     type: GET_CIRCULARS,
     payload: res.data.content

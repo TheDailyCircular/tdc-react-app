@@ -22,22 +22,23 @@ import Registration from './components/user/Registration';
 import jwt_decode from 'jwt-decode';
 import setJWTTokenToHeader from './security/setJWTTokenToHeader';
 import { SET_CURRENT_USER } from './actions/types';
+import { logout } from './actions/SecurityActions';
 
 const jwtToken = localStorage.jwtToken;
 
 if (jwtToken) {
   setJWTTokenToHeader(jwtToken);
-  const decodeJwtToken = jwt_decode(jwtToken);
+  const decodeJwtToken = jwt_decode(jwtToken.split(" ")[1]);
   store.dispatch({
     type: SET_CURRENT_USER,
     payload: decodeJwtToken
   });
 
-  // const currentTime = Date.now() / 1000;
-  // if (decodeJwtToken.exp < currentTime) {
-  //   store.dispatch(logout());
-  //   window.location.href = "/";
-  // }
+  const currentTime = Date.now() / 1000;
+  if (decodeJwtToken.exp < currentTime) {
+    store.dispatch(logout());
+    window.location.href = "/";
+  }
 }
 
 class App extends Component {
