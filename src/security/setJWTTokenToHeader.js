@@ -1,9 +1,10 @@
-import Axios from "axios"
+import Axios from 'axios';
 
 const setJWTTokenToHeader = token => {
   if (token) {
-    Axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-  } else {
+    Axios.defaults.headers.common["Authorization"] = token;
+  }
+  else {
     delete Axios.defaults.headers.common["Authorization"];
   }
 };

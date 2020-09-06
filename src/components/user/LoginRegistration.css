@@ -1,0 +1,10 @@
+#registration-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#registration-form-label {
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: right;
+}

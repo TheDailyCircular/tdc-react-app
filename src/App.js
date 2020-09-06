@@ -17,6 +17,7 @@ import NavigationBar from './components/navbar/NavigationBar';
 import SideBarAdsence from './components/adsence/SideBarAdsence';
 import Notifications from './components/notification/Notifications';
 import CreateCircular from './components/circular/CreateCircular';
+import Registration from './components/user/Registration';
 
 import jwt_decode from 'jwt-decode';
 import setJWTTokenToHeader from './security/setJWTTokenToHeader';
@@ -27,7 +28,7 @@ const jwtToken = localStorage.jwtToken;
 
 if (jwtToken) {
   setJWTTokenToHeader(jwtToken);
-  const decodeJwtToken = jwt_decode(jwtToken);
+  const decodeJwtToken = jwt_decode(jwtToken.split(" ")[1]);
   store.dispatch({
     type: SET_CURRENT_USER,
     payload: decodeJwtToken
@@ -53,6 +54,7 @@ class App extends Component {
               <Col md={9} className="changeable-area">
                 <Switch>
                   <Route exact path="/" component={Circulars} />
+                  <Route exact path="/register" component={Registration} />
                   <Route exact path="/circulars" component={Circulars} />
                   <Route exact path="/posts" component={Posts} />
                   <Route exact path="/posts/create" component={CreateCircular} />
