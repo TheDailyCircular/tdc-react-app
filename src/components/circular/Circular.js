@@ -22,9 +22,9 @@ class Circular extends Component {
   likeButtonHandler = () => {
     let changedState = this.state
     changedState.isLikeButtonClicked = !changedState.isLikeButtonClicked
-    if( changedState.isLikeButtonClicked == true ) {
+    if (changedState.isLikeButtonClicked === true) {
       changedState.likes += 1
-      if( changedState.isDislikeButtonClicked == true ) {
+      if (changedState.isDislikeButtonClicked === true) {
         changedState.isDislikeButtonClicked = false
         changedState.dislikes -= 1
       }
@@ -37,9 +37,9 @@ class Circular extends Component {
   dislikeButtonHandler = () => {
     let changedState = this.state
     changedState.isDislikeButtonClicked = !changedState.isDislikeButtonClicked
-    if( changedState.isDislikeButtonClicked == true ) {
+    if (changedState.isDislikeButtonClicked === true) {
       changedState.dislikes += 1
-      if( changedState.isLikeButtonClicked == true ) {
+      if (changedState.isLikeButtonClicked === true) {
         changedState.isLikeButtonClicked = false
         changedState.likes -= 1
       }
@@ -69,11 +69,11 @@ class Circular extends Component {
             View | Share
           </Col>
           <Col md={8}>
-            <Button size="sm" onClick={this.likeButtonHandler}> 
-            <FontAwesomeIcon icon={faThumbsUp} size="md" />
+            <Button size="sm" onClick={this.likeButtonHandler}>
+              <FontAwesomeIcon icon={faThumbsUp} size="md" />
               {this.state.likes} </Button>
-            <Button size="sm" onClick={this.dislikeButtonHandler}> 
-            <FontAwesomeIcon icon={faThumbsDown} size="md" />{this.state.dislikes} </Button>
+            <Button size="sm" onClick={this.dislikeButtonHandler}>
+              <FontAwesomeIcon icon={faThumbsDown} size="md" />{this.state.dislikes} </Button>
           </Col>
         </Row>
       </Container>
