@@ -15,3 +15,13 @@
 #main-row {
   margin: 5px;
 }
+
+#main-container {
+  border: 1px solid black;
+  max-width: 1500px;
+  
+}
+
+#notification-col {
+  position: sticky;
+}

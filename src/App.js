@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
 import { Provider } from 'react-redux';
 import store from './Store';
@@ -50,23 +50,25 @@ class App extends Component {
             <Header />
             <Route exact path="/registration" component={UserRegistration} />
             <NavigationBar jwtToken={jwtToken} />
-            <Row id="main-row">
-              <Col md={9} className="changeable-area">
-                <Switch>
-                  <Route exact path="/" component={Circulars} />
-                  <Route exact path="/register" component={Registration} />
-                  <Route exact path="/circulars" component={Circulars} />
-                  <Route exact path="/posts" component={Posts} />
-                  <Route exact path="/posts/create" component={CreateCircular} />
-                  <Route exact path="/messages" component={Messages} />
-                  <Route exact path="/profile" component={UserProfile} />
-                </Switch>
-              </Col>
-              <Col md={3}>
-                <SideBarAdsence />
-                <Notifications />
-              </Col>
-            </Row>
+            <Container id="main-container">
+              <Row id="main-row">
+                <Col md={9} className="changeable-area">
+                  <Switch>
+                    <Route exact path="/" component={Circulars} />
+                    <Route exact path="/register" component={Registration} />
+                    <Route exact path="/circulars" component={Circulars} />
+                    <Route exact path="/posts" component={Posts} />
+                    <Route exact path="/posts/create" component={CreateCircular} />
+                    <Route exact path="/messages" component={Messages} />
+                    <Route exact path="/profile" component={UserProfile} />
+                  </Switch>
+                </Col>
+                <Col md={3} id="notification-col">
+                  <SideBarAdsence />
+                  <Notifications />
+                </Col>
+              </Row>
+            </Container>
           </div>
         </BrowserRouter>
       </Provider>

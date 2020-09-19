@@ -25,14 +25,18 @@ class CreateCircular extends Component {
 
   onSubmitHandler = event => {
     event.preventDefault();
-    console.log(this.state);
+    let tmpUser = {
+      username: this.props.security.user.username
+    };
     const newCircular = {
       id: this.state.id,
       title: this.state.title,
       expirationDate: this.state.expirationDate,
-      text: this.state.text
+      text: this.state.text,
+      user: tmpUser 
     };
-    this.props.createCircular(newCircular, this.props.history);
+    console.log(newCircular);
+    // this.props.createCircular(newCircular, this.props.history);
   }
 
   render() {
@@ -82,12 +86,14 @@ class CreateCircular extends Component {
 CreateCircular.protoType = {
   error: PropTypes.object.isRequired,
   circular: PropTypes.object.isRequired,
+  security: PropTypes.object.isRequired,
   createCircular: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   error: state.error,
-  circular: state.circular.circular
+  circular: state.circular.circular,
+  security: state.security
 });
 
 const mapDispatchToProps = {
